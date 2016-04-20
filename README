@@ -1,0 +1,13 @@
+An example of how to use libtool + autoconf + automake.
+
+After unpacking the tarball run
+
+    aclocal     # creates autom4te.cache and symlink aclocal.m4 
+    libtoolize || glibtoolize # creates ltmain.sh
+    autoconf    # creates configure, adds to autom4te.cache
+    autoheader  # creates config.h.in
+    automake -a # creates symlinks missing, install-sh, depcomp, config.sub, config.guess, compile, Makefile.in, lib-munge/Makefile.in, and munge/Makefile.in
+    ./configure --prefix `pwd`/../build # creates config.status, config.log, config.h, Makefile, lib-munge/Makefile, and munge/Makefile
+    make install # installs under ../build
+
+This artifact is required when using automake but is otherwise unused.
